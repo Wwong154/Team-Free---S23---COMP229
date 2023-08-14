@@ -11,11 +11,11 @@ export class AppService {
   constructor(public http: HttpClient, private route : Router) { }
 
   getSurveys(){
-    return this.http.get('http://localhost:3000/survey');
+    return this.http.get('https://comp-229-team-free-final-9ed20f9ca3a9.herokuapp.com/survey');
   }
 
   login(userInfo : object): Observable<boolean>{
-    return this.http.post('http://localhost:3000/users/login',{userInfo}).pipe(map(data => {
+    return this.http.post('https://comp-229-team-free-final-9ed20f9ca3a9.herokuapp.com/users/login',{userInfo}).pipe(map(data => {
       let res :any = data;
       if (res.err) {
         return false;
@@ -26,7 +26,7 @@ export class AppService {
   }
 
   register(userInfo : object): Observable<any>{
-    return this.http.post('http://localhost:3000/users/register',{userInfo}).pipe(map(data => {
+    return this.http.post('https://comp-229-team-free-final-9ed20f9ca3a9.herokuapp.com/users/register',{userInfo}).pipe(map(data => {
       let res :any = data;
       if (res.err) {
         return res;
@@ -37,7 +37,7 @@ export class AppService {
   }
 
   createSurvey(survey : object): Observable<any>{
-    return this.http.post('http://localhost:3000/survey/create',{survey}).pipe(map(data => {
+    return this.http.post('https://comp-229-team-free-final-9ed20f9ca3a9.herokuapp.com/survey/create',{survey}).pipe(map(data => {
       let res :any = data;
       if (res.err) {
         return res;
@@ -48,7 +48,7 @@ export class AppService {
   }
 
   getSurvetById(id : any){
-    return this.http.get('http://localhost:3000/survey/' + id,).pipe(map(data => {
+    return this.http.get('https://comp-229-team-free-final-9ed20f9ca3a9.herokuapp.com/survey/' + id,).pipe(map(data => {
       let res :any = data;
       if (res.err) {
         return res;
@@ -58,7 +58,7 @@ export class AppService {
   }
 
   submitSurvey(id : any, data : object){
-    return this.http.post('http://localhost:3000/survey/' + id, {data}).pipe(map(data => {
+    return this.http.post('https://comp-229-team-free-final-9ed20f9ca3a9.herokuapp.com/survey/' + id, {data}).pipe(map(data => {
       let res :any = data;
       if (res.err) {
         return res;
